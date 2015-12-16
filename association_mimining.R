@@ -12,17 +12,18 @@ itemFrequencyPlot(Groceries,topN=15,type="absolute")
 
 #set the minimum support to 0.001
 #set the minimum confidence of 0.8
-#then show the top 5 rules
 
 rules <- apriori(Groceries, parameter = list(supp = 0.001, conf = 0.8))
 
 # Show the top 4 rules, but only 2 digits
 options(digits=2)
 inspect(rules[1:4])
+
 #sort to get the most relevant rules first
 rules<-sort(rules, by="confidence", decreasing=TRUE)
 #to avoid geting a long rule like rule 4,u set the maxlen like below
 #rule=apriori(Groceries,parameters=list(supp=0.001,conf=0.8,maxlen=3))
+
 #now lets get the redundant ruless out
 subset.matrix <- is.subset(rules, rules)
 subset.matrix[lower.tri(subset.matrix, diag=T)] <- NA
