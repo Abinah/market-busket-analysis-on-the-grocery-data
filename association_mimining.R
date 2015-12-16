@@ -39,5 +39,5 @@ inspect(rules[1:4])
 rules<-sort(rules, by="confidence", decreasing=TRUE)
 #cool,now i can predict with 91% confidence that if one buys"curd and cereals" he will buy milk
 #you can create a simple visualization of your rules
-#Visualize
+#Visualize..
 plot(rules,method="graph",interactive=TRUE)
